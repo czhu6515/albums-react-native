@@ -4,29 +4,39 @@ import Card from './Card'
 import CardSection from './CardSection'
 
 
-const Album = (props) => {
+const Album = ({ album }) => {
+  const { title, artist, thumbnail_image, image } = album
+  const { albumHeaderStyle, 
+          albumTitleStyle,
+          thumbnailStyle,
+          thumbnailContainerStyle, 
+          imgStyle,
+        } = styles
 
-  const {textContainer, imageContainer} = styles
   return(
     <Card>
       <CardSection>
-        <View>
+        <View style={thumbnailContainerStyle}>
           <Image
-            style={imageContainer} 
-            source={{uri: props.album.image}}
+            style={thumbnailStyle} 
+            source={{uri: thumbnail_image }}
           />
         </View>
-        <View style={textContainer}>
-          <Text >{props.album.title}</Text>
-          <Text >{props.album.artist}</Text>
+        <View style={albumHeaderStyle}>
+          <Text style={albumTitleStyle}>{title}</Text>
+          <Text >{artist}</Text>
         </View> 
       </CardSection>
 
       <CardSection>
-        <Text >{props.album.title}</Text>
+        <Image
+          style={imgStyle} 
+          source={{uri: image }}
+        />   
       </CardSection>
+
       <CardSection>
-        <Text >{props.album.title}</Text>
+        <Text >{title}</Text>
       </CardSection>
     </Card>
   )
@@ -34,15 +44,29 @@ const Album = (props) => {
 }
 
 const styles={
-  textContainer: {
-    marginLeft: 20,
+  albumHeaderStyle: {
+    marginLeft: 10,
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
-  imageContainer: {
+  albumTitleStyle: {
+    fontSize: 18
+  },
+  thumbnailStyle: {
     height: 50,
     width: 50
-  }
+  },
+  thumbnailContainerStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    marginRight: 10
+  },
+  imgStyle: {
+    height: 300,
+    flex: 1,
+    width: null
+  },
 }
 
 export default Album
