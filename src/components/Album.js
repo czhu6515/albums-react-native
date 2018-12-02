@@ -1,15 +1,25 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import Card from './Card'
 import CardSection from './CardSection'
 
 
 const Album = (props) => {
 
+  const {textContainer, imageContainer} = styles
   return(
     <Card>
       <CardSection>
-        <Text >{props.album.title}</Text>
+        <View>
+          <Image
+            style={imageContainer} 
+            source={{uri: props.album.image}}
+          />
+        </View>
+        <View style={textContainer}>
+          <Text >{props.album.title}</Text>
+          <Text >{props.album.artist}</Text>
+        </View> 
       </CardSection>
 
       <CardSection>
@@ -21,6 +31,18 @@ const Album = (props) => {
     </Card>
   )
 
+}
+
+const styles={
+  textContainer: {
+    marginLeft: 20,
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  imageContainer: {
+    height: 50,
+    width: 50
+  }
 }
 
 export default Album
