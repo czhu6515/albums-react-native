@@ -1,13 +1,13 @@
 # albums-react-native
 
-<p align='center>
+
   <img 
     src='https://raw.githubusercontent.com/czhu6515/albums-react-native/master/assets/Screenshot_20181203-135024.png'
     alt='taylor swift albums'
     height=400
     width=230
   />
-</p>
+
 
 
 
